@@ -13,7 +13,8 @@ const Block = ({ children, className }) => {
 }
 
 Block.propTypes = {
-    className: PropTypes.string
+    className: PropTypes.string,
+    children: PropTypes.any
 }
 
 export default Block

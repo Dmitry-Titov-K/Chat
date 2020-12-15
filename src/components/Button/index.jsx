@@ -12,7 +12,8 @@ const Button = props => {
 }
 
 Button.propTypes = {
-    className: PropTypes.string
+    className: PropTypes.string,
+    size: PropTypes.string
 }
 
 export default Button
