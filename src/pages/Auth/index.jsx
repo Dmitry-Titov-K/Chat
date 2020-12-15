@@ -53,14 +53,16 @@ const Auth = () => {
                                 placeholder="Password"
                             />
                         </Form.Item>
-                        <Form.Item>
-                        </Form.Item>
+
 
                         <Form.Item>
                             <Button type="primary" size='large' >
                                 Войти в аккаунт
         </Button>
-        
+
+                        </Form.Item>
+                        <Form.Item>
+                            <a href="" className="auth__register-link">Зарегистрироваться</a>
                         </Form.Item>
                     </Form>
 
