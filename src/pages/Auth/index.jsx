@@ -27,7 +27,7 @@ const Auth = () => {
                         <Form.Item
                             name="username"
                             hasFeedback
-                            validateStatus="success"
+                            
                             rules={[
                                 {
                                     required: true,
@@ -39,6 +39,7 @@ const Auth = () => {
                         </Form.Item>
                         <Form.Item
                             name="password"
+                            hasFeedback
                             rules={[
                                 {
                                     required: true,
@@ -56,9 +57,9 @@ const Auth = () => {
 
 
                         <Form.Item>
-                            <Button type="primary" size='large' >
+                            <Button type="primary" size='large'  htmlType="submit" >
                                 Войти в аккаунт
-        </Button>
+                            </Button>
 
                         </Form.Item>
                         <Form.Item>
