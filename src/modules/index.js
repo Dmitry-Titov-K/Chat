@@ -1,2 +1,2 @@
-import LoginForm from './LoginForm/index'
-export default  LoginForm 
+export {default as LoginForm} from './LoginForm'
+export {default as RegisterForm} from './RegisterForm'
