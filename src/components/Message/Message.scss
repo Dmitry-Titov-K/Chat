@@ -2,7 +2,7 @@
 
 .message{
     display: flex;
-
+    margin-bottom: 20px;
     &__avatar{
         display: flex;
         flex-direction: column-reverse;
@@ -16,16 +16,19 @@
     }
     &__bubble{
         background: $blue;
+        display: inline-block;
         border-radius: 12px 12px 12px 0px;
         box-shadow: 0px 5px 5px rgba(54,116,255,0.1);
         padding: 17px;
         margin-bottom: 8px;
+        max-width: 600px;
     }
     &__text{
         color: #fff;
         line-height: 20px;
     }
     &__date{
+        display: block;
         font-size: 12;
         opacity: 0.5;
     }
