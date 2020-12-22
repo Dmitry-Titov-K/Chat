@@ -1,0 +1,12 @@
+.message{
+    display: flex;
+    flex-direction: column;
+    &__avatar{
+       img{
+        border-radius: 50%;
+        width: 33px;
+        height: 33px;
+        margin-right: 13px;
+       }
+    }
+}
