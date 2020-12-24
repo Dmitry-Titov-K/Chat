@@ -1,8 +1,10 @@
 @import "~styles/variables";
 
 .message{
+    $self:&;
     display: flex;
     margin-bottom: 20px;
+    margin-top: 20px;
     &__avatar{
         display: flex;
         flex-direction: column-reverse;
@@ -31,5 +33,18 @@
         display: block;
         font-size: 12;
         opacity: 0.5;
+    }
+    &--isme{
+        display: flex;
+        flex-direction: row-reverse;
+        #{$self}__bubble{
+            background: #fff;
+            border: 1px solid #ececec;
+            box-shadow: 0px 4px 4px rgba(0,0,0,0.2);
+            border-radius: 12px 12px 0px 12px;
+        }
+        #{$self}__text{
+            color: #000;
+        }
     }
 }

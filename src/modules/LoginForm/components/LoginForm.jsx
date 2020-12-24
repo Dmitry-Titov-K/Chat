@@ -28,24 +28,14 @@ const LoginForm = () => {
                             name="username"
                             hasFeedback
                             
-                            rules={[
-                                {
-                                    required: true,
-                                    message: 'Please input your Username!',
-                                },
-                            ]}
+                           
                         >
                             <Input size='large' prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Username" />
                         </Form.Item>
                         <Form.Item
                             name="password"
                             hasFeedback
-                            rules={[
-                                {
-                                    required: true,
-                                    message: 'Please input your Password!',
-                                },
-                            ]}
+                           
                         >
                             <Input
                                 size='large'

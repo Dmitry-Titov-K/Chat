@@ -2,14 +2,15 @@ import React from 'react'
 import PropTypes from 'prop-types';
 import formatDistanceToNow from 'date-fns/formatDistanceToNow'
 import ruLocale from 'date-fns/locale/ru'
+import ClassNames from 'classnames'
 
 
 
 import './Message.scss'
 
-const Message = ({avatar,user,text,date}) => {
+const Message = ({avatar,user,text,date,isMe}) => {
     return (
-     <div className='message'>
+     <div className={ClassNames("message",{"message--isme":isMe})}>
         <div className="message__avatar">
             <img src={avatar} alt={`Avatar ${user}`}/>
         </div>
@@ -29,7 +30,8 @@ Message.propTypes = {
     avatar: PropTypes.string,
     text: PropTypes.string,
     date: PropTypes.any,
-    user: PropTypes.object
+    user: PropTypes.object,
+    isMe: PropTypes.bool
     
 }
 
