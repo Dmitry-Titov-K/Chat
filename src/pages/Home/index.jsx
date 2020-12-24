@@ -21,7 +21,8 @@ const Home = () => {
                 avatar='https://image.freepik.com/free-vector/mysterious-mafia-man-smoking-cigarette_52683-34828.jpg' 
                 text='Free for personal and commercial purpose with attribution. More info' 
                 date={date}
-                isMe={true} />
+                isMe={true}
+                isRead={false} />
         </section>
     )
 }
