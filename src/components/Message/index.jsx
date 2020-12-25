@@ -10,6 +10,7 @@ import Nonread from 'assets/svg/noread.svg'
 
 import './Message.scss'
 
+
 const Message = ({ avatar, user, text, date, isMe, isRead, attachment }) => {
     return (
         <div className={ClassNames("message", { "message--isme": isMe })}>
@@ -27,16 +28,20 @@ const Message = ({ avatar, user, text, date, isMe, isRead, attachment }) => {
                     <div className="message__bubble">
                         <p className="message__text">{text}</p>
                     </div>
+                    <div className="message__attachment">
+                        {attachment &&
+                            attachment.map(item=>(
+                                <div key={item.id} className="message_attachment-item">
+                                    <img src={item.url} alt=""/>
+                                </div>
+                            )
+                                
+                            )
+                        }
+                    </div>
                     <time className="message__date">{formatDistanceToNow(date, { locale: ruLocale, addSuffix: true })}</time>
                 </div>
-                <div className="message__attachment">
-                        { attachment &&
-                        attachment.map(item => {
-                            <div className="message__attachment-item">
-                                <img src={item.url} alt={item.fileName}/>
-                            </div>
-                        })}
-                    </div>
+                
             </div>
         </div>
     )

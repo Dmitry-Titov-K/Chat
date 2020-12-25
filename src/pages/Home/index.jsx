@@ -13,10 +13,12 @@ const Home = () => {
                 date={date} 
                 attachment ={[
                     {
+                        id:1,
                         fileName:"file1",
                         url:"https://source.unsplash.com/100x100/?random=1&nature,water"
                     },
                     {
+                        id:2,
                         fileName:"file2",
                         url:"https://source.unsplash.com/100x100/?random=2&nature,water"
                     }
