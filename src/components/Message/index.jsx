@@ -10,34 +10,39 @@ import Nonread from 'assets/svg/noread.svg'
 
 import './Message.scss'
 
-const Message = ({avatar,user,text,date,isMe,isRead}) => {
+const Message = ({ avatar, user, text, date, isMe, isRead, attachment }) => {
     return (
-     <div className={ClassNames("message",{"message--isme":isMe})}>
-        <div className="message__avatar">
-            <img src={avatar} alt={`Avatar ${user}`}/>
-        </div>
-        <div className="message__content">
-               {isMe &&  isRead ?
-               <div className="message__checked-read">
-               <img src={Read} alt="checked"/>
-                </div>
-                 :
-                 <div className="message__checked-read message__checked-read--no">
-               <img src={Nonread} alt="checked"/>
-                </div>
+        <div className={ClassNames("message", { "message--isme": isMe })}>
+            <div className="message__avatar">
+                <img src={avatar} alt={`Avatar ${user}`} />
+            </div>
+            <div className="message__content">
+                {isMe && (isRead ? <div className="message__checked-read">
+                    <img src={Read} alt="checked" />
+                </div> : <div className="message__checked-read message__checked-read--no">
+                        <img src={Nonread} alt="checked" />
+                    </div>)
                 }
-            <div className="message__info">
-            <div className="message__bubble">
-                <p className="message__text">{text}</p>
-            </div>
-            <time className="message__date">{formatDistanceToNow(date, {locale: ruLocale, addSuffix: true})}</time>
+                <div className="message__info">
+                    <div className="message__bubble">
+                        <p className="message__text">{text}</p>
+                    </div>
+                    <time className="message__date">{formatDistanceToNow(date, { locale: ruLocale, addSuffix: true })}</time>
+                </div>
+                <div className="message__attachment">
+                        { attachment &&
+                        attachment.map(item => {
+                            <div className="message__attachment-item">
+                                <img src={item.url} alt={item.fileName}/>
+                            </div>
+                        })}
+                    </div>
             </div>
         </div>
-     </div>
     )
 }
-Message.defaultProps ={
-    user:{}
+Message.defaultProps = {
+    user: {}
 }
 Message.propTypes = {
     avatar: PropTypes.string,
@@ -45,8 +50,9 @@ Message.propTypes = {
     date: PropTypes.any,
     user: PropTypes.object,
     isMe: PropTypes.bool,
-    isRead: PropTypes.bool
-    
+    isRead: PropTypes.bool,
+    attachment: PropTypes.array
+
 }
 
 export default Message
