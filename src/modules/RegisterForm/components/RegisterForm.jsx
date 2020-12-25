@@ -37,7 +37,7 @@ const RegisterForm = props => {
                         name="email"
                         validateStatus={!touched.email  ? '' : errors.email ? "error":"success"}
                         hasFeedback 
-                        help={errors.email}
+                        help={!touched.email  ? null : errors.email }
                     >
                         <Input 
                         id="email"
@@ -62,7 +62,7 @@ const RegisterForm = props => {
                         validateStatus={!touched.password  ? '' : errors.password ? "error":"success"}
                         hasFeedback
                         allowClear
-                        help={errors.password}
+                        help={!touched.password  ? null : errors.password }
                     >
                         <Input.Password
                             id='password'
