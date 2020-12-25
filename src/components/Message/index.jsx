@@ -31,7 +31,7 @@ const Message = ({ avatar, user, text, date, isMe, isRead, attachment }) => {
                     <div className="message__attachment">
                         {attachment &&
                             attachment.map(item=>(
-                                <div key={item.id} className="message_attachment-item">
+                                <div key={item.id} className="message__attachment-item">
                                     <img src={item.url} alt=""/>
                                 </div>
                             )

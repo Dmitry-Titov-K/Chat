@@ -21,6 +21,11 @@ const Home = () => {
                         id:2,
                         fileName:"file2",
                         url:"https://source.unsplash.com/100x100/?random=2&nature,water"
+                    },
+                    {
+                        id:3,
+                        fileName:"file3",
+                        url:"https://source.unsplash.com/100x100/?random=2&nature,water"
                     }
                    
                 ]}
@@ -37,7 +42,25 @@ const Home = () => {
                 text='Free for personal and commercial purpose with attribution. More info' 
                 date={date}
                 isMe={true}
-                isRead={true} />
+                isRead={true} 
+                attachment ={[
+                    {
+                        id:1,
+                        fileName:"file1",
+                        url:"https://source.unsplash.com/100x100/?random=1&nature,water"
+                    },
+                    {
+                        id:2,
+                        fileName:"file2",
+                        url:"https://source.unsplash.com/100x100/?random=2&nature,water"
+                    },
+                    {
+                        id:3,
+                        fileName:"file3",
+                        url:"https://source.unsplash.com/100x100/?random=2&nature,water"
+                    }
+                   
+                ]}/>
         </section>
     )
 }
