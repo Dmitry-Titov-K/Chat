@@ -6,9 +6,9 @@ export default withFormik({
    validate: values=>{
     let errors ={};
     if (!values.email) {
-      errors.email = 'Required';
+      errors.email = 'Введите ваш Е-mail';
     } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-      errors.email = 'Invalid email address';
+      errors.email = 'Не правильный формат E-mail';
     }
     if(!values.password){
         errors.password = 'Введите пароль';

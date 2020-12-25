@@ -37,6 +37,7 @@ const RegisterForm = props => {
                         name="email"
                         validateStatus={!touched.email  ? '' : errors.email ? "error":"success"}
                         hasFeedback 
+                        help={errors.email}
                     >
                         <Input 
                         id="email"
@@ -60,8 +61,10 @@ const RegisterForm = props => {
                         name="password"
                         validateStatus={!touched.password  ? '' : errors.password ? "error":"success"}
                         hasFeedback
+                        allowClear
+                        help={errors.password}
                     >
-                        <Input
+                        <Input.Password
                             id='password'
                             size='large'
                             prefix={<LockOutlined className="site-form-item-icon" />}
@@ -70,7 +73,7 @@ const RegisterForm = props => {
                             onChange={handleChange}
                             onBlur={handleBlur}
                             value={values.email}
-                            help={errors.password}
+                            
                         />
                     </Form.Item>
                     <Form.Item
@@ -78,7 +81,7 @@ const RegisterForm = props => {
                         
                         hasFeedback
                     >
-                        <Input
+                        <Input.Password
                             size='large'
                             prefix={<LockOutlined className="site-form-item-icon" />}
                             type="password"
