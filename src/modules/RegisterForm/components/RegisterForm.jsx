@@ -1,80 +1,94 @@
 import React from 'react'
 import { Form, Input } from 'antd';
 import { UserOutlined, LockOutlined, MailOutlined, InfoCircleTwoTone } from '@ant-design/icons';
+import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom'
 import { Block, Button } from 'components'
 
 
-const RegisterForm = () => {
-    const success = false
+const RegisterForm = props => {
+    const success = true
+    const {
+        values,
+        errors,
+        touched,
+        handleChange,
+        handleBlur,
+        handleSubmit,
+    }=props
+    console.log(errors.email)
     return (
         <div>
             <div className="auth__top">
-                <h2>Решистрация</h2>
+                <h2>Регистрация</h2>
                 <p>для входа в чат, вам нужно зарегестрироваться
                    </p>
             </div>
             <Block>
 
-                {success ? <Form
+                {success ? <Form onSubmit={handleSubmit}
                     name="normal_login"
                     className="login-form"
-                    initialValues={{
-                        remember: true,
-                    }}
+                   
 
                 >
                     <Form.Item
+                        
                         name="email"
-                        hasFeedback
-
-                        rules={[
-                            {
-                                type: 'email',
-                                message: 'The input is not valid E-mail!',
-                            },
-                            {
-                                required: true,
-                                message: 'Please input your E-mail!',
-                            },
-                        ]}
+                        validateStatus={!touched.email  ? '' : errors.email ? "error":"success"}
+                        hasFeedback 
                     >
-                        <Input size='large' prefix={<MailOutlined className="site-form-item-icon" />} placeholder="E-mail" />
+                        <Input 
+                        id="email"
+                        size='large' 
+                        prefix={<MailOutlined className="site-form-item-icon" />} 
+                        placeholder="E-mail" 
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        value={values.email} />
                     </Form.Item>
                     <Form.Item
                         name="username"
-                        hasFeedback
-
-                        rules={[
-                            {
-                                required: true,
-                                message: 'Please input your E-mail!',
-                            },
-                        ]}
+                        
+                        hasFeedback  
                     >
-                        <Input size='large' prefix={<UserOutlined className="site-form-item-icon" />} placeholder="username" />
+                        <Input size='large' 
+                        prefix={<UserOutlined className="site-form-item-icon" />} 
+                        placeholder="Ваше имя" />
                     </Form.Item>
                     <Form.Item
                         name="password"
+                        validateStatus={!touched.password  ? '' : errors.password ? "error":"success"}
                         hasFeedback
-                        rules={[
-                            {
-                                required: true,
-                                message: 'Please input your Password!',
-                            },
-                        ]}
+                    >
+                        <Input
+                            id='password'
+                            size='large'
+                            prefix={<LockOutlined className="site-form-item-icon" />}
+                            type="password"
+                            placeholder="Пароль"
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            value={values.email}
+                            help={errors.password}
+                        />
+                    </Form.Item>
+                    <Form.Item
+                        name="password2"
+                        
+                        hasFeedback
                     >
                         <Input
                             size='large'
                             prefix={<LockOutlined className="site-form-item-icon" />}
                             type="password"
-                            placeholder="Password"
+                            placeholder="Подтвердите пароль"
                         />
                     </Form.Item>
 
 
                     <Form.Item>
-                        <Button type="primary" size='large' htmlType="submit" >
+                        <Button onClick={handleSubmit} type="primary" size='large' htmlType="submit" >
                             Зарегистрироваться
                             </Button>
 
@@ -93,6 +107,15 @@ const RegisterForm = () => {
         </div>
 
     )
+}
+
+RegisterForm.propTypes={
+    values:PropTypes.any,
+    errors:PropTypes.any,
+    touched: PropTypes.any,
+    handleBlur: PropTypes.any,
+    handleChange: PropTypes.any,
+    handleSubmit: PropTypes.any
 }
 
 export default RegisterForm
