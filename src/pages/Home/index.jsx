@@ -1,5 +1,5 @@
 import React from 'react'
-import { Message } from 'components'
+import { Message, DialogItem } from 'components'
 import './Home.scss'
 
 const Home = () => {
@@ -7,6 +7,9 @@ const Home = () => {
     const date2 = new Date(2020,11,1);
     return (
         <section className='home'>
+            <div className="dialogs">
+                <DialogItem />
+            </div>
             <Message 
                 avatar='https://www.flaticon.com/svg/static/icons/svg/3930/3930551.svg' 
                 text='Hello' 
@@ -61,11 +64,6 @@ const Home = () => {
                     }
                    
                 ]}/>
-                <Message 
-                avatar='https://www.flaticon.com/svg/static/icons/svg/3930/3930551.svg' 
-
-                isTyping={true}
-                />
                  <Message 
                 avatar='https://www.flaticon.com/svg/static/icons/svg/3930/3930551.svg' 
                 attachment ={[
@@ -77,6 +75,12 @@ const Home = () => {
                    
                 ]}
                 />
+                <Message 
+                avatar='https://www.flaticon.com/svg/static/icons/svg/3930/3930551.svg' 
+
+                isTyping={true}
+                />
+                
         </section>
     )
 }
