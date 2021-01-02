@@ -11,9 +11,13 @@ import Nonread from 'assets/svg/noread.svg'
 import './Message.scss'
 
 
-const Message = ({ avatar, user, text, date, isMe, isRead, attachment }) => {
+const Message = ({ avatar, user, text, date, isMe, isRead, attachment, isTyping }) => {
     return (
-        <div className={ClassNames("message", { "message--isme": isMe })}>
+        <div className={ClassNames("message", { 
+            "message--isme": isMe, 
+            "message--is-typing": isTyping ,
+            "message--image": attachment && attachment.length ===1
+        })}>
             <div className="message__avatar">
                 <img src={avatar} alt={`Avatar ${user}`} />
             </div>
@@ -25,23 +29,30 @@ const Message = ({ avatar, user, text, date, isMe, isRead, attachment }) => {
                     </div>)
                 }
                 <div className="message__info">
-                    <div className="message__bubble">
-                        <p className="message__text">{text}</p>
-                    </div>
+                    {(text || isTyping)&&(<div className="message__bubble">
+                        {text && <p className="message__text">{text}</p>}
+                        {isTyping && <div className='message__is-typing'>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>}
+                    </div>)}
                     <div className="message__attachment">
                         {attachment &&
-                            attachment.map(item=>(
+                            attachment.map(item => (
                                 <div key={item.id} className="message__attachment-item">
-                                    <img src={item.url} alt=""/>
+                                    <img src={item.url} alt="" />
                                 </div>
                             )
-                                
+
                             )
                         }
                     </div>
-                    <time className="message__date">{formatDistanceToNow(date, { locale: ruLocale, addSuffix: true })}</time>
+                    {date &&
+                        <time className="message__date">{formatDistanceToNow(date, { locale: ruLocale, addSuffix: true })}</time>}
+
                 </div>
-                
+
             </div>
         </div>
     )
@@ -56,7 +67,8 @@ Message.propTypes = {
     user: PropTypes.object,
     isMe: PropTypes.bool,
     isRead: PropTypes.bool,
-    attachment: PropTypes.array
+    attachment: PropTypes.array,
+    isTyping: PropTypes.bool
 
 }
 

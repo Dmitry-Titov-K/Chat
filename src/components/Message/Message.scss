@@ -1,90 +1,139 @@
 @import "~styles/variables";
 
-.message{
-    $self:&;
+.message {
+  $self: &;
+  display: flex;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  &__avatar {
     display: flex;
-    margin-bottom: 20px;
-    margin-top: 20px;
-    &__avatar{
-        display: flex;
-        flex-direction: column-reverse;
-       img{
-        border-radius: 50%;
-        width: 33px;
-        height: 33px;
-        margin-right: 13px;
-        margin-bottom: 23px;
-       }
+    flex-direction: column-reverse;
+    img {
+      border-radius: 50%;
+      width: 33px;
+      height: 33px;
+      margin-right: 13px;
+      margin-bottom: 5px;
     }
-    &__bubble{
-        background: $blue;
-        display: inline-block;
-        border-radius: 12px 12px 12px 0px;
-        box-shadow: 0px 5px 5px rgba(54, 116, 255, 0.2);
-        padding: 17px;
-        margin-right: 20px;
-        margin-bottom: 8px;
-        max-width: 600px;
+  }
+  &__bubble {
+    background: $blue;
+    display: inline-block;
+    border-radius: 12px 12px 12px 0px;
+    box-shadow: 0px 5px 5px rgba(54, 116, 255, 0.2);
+    padding: 17px;
+    margin-right: 20px;
+    margin-bottom: 8px;
+    max-width: 600px;
+  }
+  &__text {
+    color: #fff;
+    line-height: 20px;
+  }
+  &__date {
+    display: block;
+    font-size: 12;
+    opacity: 0.5;
+  }
+  &--is-typing {
+    #{$self}__bubble {
+      background-color: $message_typing_bubble;
     }
-    &__text{
-        color: #fff;
-        line-height: 20px;
-    }
-    &__date{
-        display: block;
-        font-size: 12;
-        opacity: 0.5;
-    }
-    &--isme{
-        display: flex;
-        flex-direction: row-reverse;
-        #{$self}__content{
-            position: relative;
-        }
-        #{$self}__bubble{
-            background: #fff;
-            border: 1px solid #ececec;
-            box-shadow: 0px 4px 4px rgba(0,0,0,0.2);
-            border-radius: 12px 12px 0px 12px;
-            margin-left: 20px;
-            margin-right: 0px;
-        }
-        #{$self}__attachment{
-            display: flex;
-            flex-direction: row-reverse;
-        }
-        #{$self}__checked-read{
-            position: absolute;
-            bottom: 20px;
-            left: -25px;
-            &--no{
-                left: -20px;
-            }
-        }
-        #{$self}__text{
-            color:$black;
-        }
-        #{$self}__info{
-            text-align: right;
-        }
-        #{$self}__date{
-            text-align: right;
-        }
-    }
-    &__attachment{
-        display: flex;
-        &-item{
-            margin-right: 5px;
-            cursor: pointer;
+  }
+  &--image{
+      #{$self}__attachment{
+          &-item{
             img{
-                width: 65px;
-                height: 65px;
-                border-radius: 8px;
-               
-            }:hover{
-                transform: scale(1.05);
-                transition-duration: 500ms;
-            }
+                width: 150px;
+                height: 150px;
+              }
+          }
+         
         }
+          
+  }
+  &--isme {
+    display: flex;
+    flex-direction: row-reverse;
+    #{$self}__content {
+      position: relative;
     }
+    #{$self}__bubble {
+      background: #fff;
+      border: 1px solid #ececec;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+      border-radius: 12px 12px 0px 12px;
+      margin-left: 20px;
+      margin-right: 0px;
+    }
+    #{$self}__attachment {
+      display: flex;
+      flex-direction: row-reverse;
+    }
+    #{$self}__checked-read {
+      position: absolute;
+      bottom: 20px;
+      left: -25px;
+      &--no {
+        left: -20px;
+      }
+    }
+    #{$self}__text {
+      color: $black;
+    }
+    #{$self}__info {
+      text-align: right;
+    }
+    #{$self}__date {
+      text-align: right;
+    }
+  }
+  &__attachment {
+    display: flex;
+    &-item {
+      margin-right: 5px;
+      cursor: pointer;
+      img {
+        width: 65px;
+        height: 65px;
+        border-radius: 8px;
+      }
+      :hover {
+        transform: scale(1.05);
+        transition-duration: 500ms;
+      }
+    }
+  }
+  &__is-typing {
+    span {
+      display: inline-block;
+      animation-name: typingAnimation;
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite;
+      animation-duration: 1s;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      margin-right: 8px;
+      margin-top: 0px;
+      display: inline-block;
+      background-color: $message_typing_circle;
+
+      &:nth-of-type(2) {
+        animation-duration: 1.2s;
+      }
+      &:nth-of-type(3) {
+        animation-duration: 1.5s;
+      }
+    }
+  }
+}
+
+@keyframes typingAnimation {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }

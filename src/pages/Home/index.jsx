@@ -61,6 +61,22 @@ const Home = () => {
                     }
                    
                 ]}/>
+                <Message 
+                avatar='https://www.flaticon.com/svg/static/icons/svg/3930/3930551.svg' 
+
+                isTyping={true}
+                />
+                 <Message 
+                avatar='https://www.flaticon.com/svg/static/icons/svg/3930/3930551.svg' 
+                attachment ={[
+                    {
+                        id:1,
+                        fileName:"file1",
+                        url:"https://source.unsplash.com/100x100/?random=1&nature,water"
+                    }
+                   
+                ]}
+                />
         </section>
     )
 }
