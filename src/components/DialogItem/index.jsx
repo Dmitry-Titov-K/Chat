@@ -3,19 +3,25 @@ import React from 'react'
 import { Time, IconeRead } from 'components'
 
 
-
+const GetAvatar = avatar => {
+    if (avatar) {
+        return (<div className="dialogs__item-avatar">
+            <img src={avatar} alt="fullname" />
+        </div>)
+    } else {
+        //make avatar function
+    }
+}
 
 import './DialogItem.scss'
 
 const DialogItem = () => {
     return (
         <div className='dialogs__item'>
-            <div className="dialogs__item-avatar">
-                <img src="https://www.flaticon.com/svg/static/icons/svg/3930/3930551.svg" alt="fullname" />
-            </div>
+            {GetAvatar("https://www.flaticon.com/svg/static/icons/svg/3930/3930551.svg")}
             <div className="dialogs__item-info">
                 <div className="dialogs__item-info-top">
-                    <b>Федор Достоевский</b>
+                    <b>Федор Достоевский </b>
                     <span>
                         <Time date={new Date()} />
                     </span>
