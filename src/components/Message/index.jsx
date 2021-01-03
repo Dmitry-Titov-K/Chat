@@ -1,41 +1,31 @@
 import React from 'react'
 import PropTypes from 'prop-types';
-import formatDistanceToNow from 'date-fns/formatDistanceToNow'
-import ruLocale from 'date-fns/locale/ru'
+import { Time, IconeRead, Typing } from 'components'
 import ClassNames from 'classnames'
-import Read from 'assets/svg/readed.svg'
-import Nonread from 'assets/svg/noread.svg'
+
 
 
 
 import './Message.scss'
 
 
-const Message = ({ avatar, user, text, date, isMe, isRead, attachment, isTyping }) => {
+
+const Message = ({ avatar, user, text, date, isMe, attachment, isTyping }) => {
     return (
-        <div className={ClassNames("message", { 
-            "message--isme": isMe, 
-            "message--is-typing": isTyping ,
-            "message--image": attachment && attachment.length ===1
+        <div className={ClassNames("message", {
+            "message--isme": isMe,
+            "message--is-typing": isTyping,
+            "message--image": attachment && attachment.length === 1
         })}>
             <div className="message__avatar">
                 <img src={avatar} alt={`Avatar ${user}`} />
             </div>
             <div className="message__content">
-                {isMe && (isRead ? <div className="message__checked-read">
-                    <img src={Read} alt="checked" />
-                </div> : <div className="message__checked-read message__checked-read--no">
-                        <img src={Nonread} alt="checked" />
-                    </div>)
-                }
+                <IconeRead isMe={false} isRead={true} />
                 <div className="message__info">
-                    {(text || isTyping)&&(<div className="message__bubble">
+                    {(text || isTyping) && (<div className="message__bubble">
                         {text && <p className="message__text">{text}</p>}
-                        {isTyping && <div className='message__is-typing'>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>}
+                        {isTyping && <Typing isTyping={true} />}
                     </div>)}
                     <div className="message__attachment">
                         {attachment &&
@@ -44,12 +34,11 @@ const Message = ({ avatar, user, text, date, isMe, isRead, attachment, isTyping 
                                     <img src={item.url} alt="" />
                                 </div>
                             )
-
                             )
                         }
                     </div>
                     {date &&
-                        <time className="message__date">{formatDistanceToNow(date, { locale: ruLocale, addSuffix: true })}</time>}
+                        <time className="message__date"><Time date={date} /></time>}
 
                 </div>
 
