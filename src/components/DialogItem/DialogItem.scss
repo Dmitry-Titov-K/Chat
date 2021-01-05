@@ -1,8 +1,7 @@
 .dialogs {
-  width: 280px;
+  width: 300px;
   &__item {
     display: flex;
-    padding: 15px;
     &-avatar {
       flex-basis: 40px;
       margin-right: 11px;
@@ -16,9 +15,45 @@
       }
     }
     &-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      flex: 1;
       &-top {
+        display: flex;
+        margin-bottom: 8px;
         b {
           font-weight: 500;
+          font-size: 14px;
+          flex: 1;
+        }
+        span {
+          opacity: 0.5;
+        }
+      }
+      &-bottom {
+        position: relative;
+        p {
+          opacity: 0.5;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          width: 220px;
+        }
+        &-counter {
+          color: #fff;
+          font-weight: 500;
+          border-radius: 30px;
+          width: 15px;
+          height: 15px;
+          background-color: #f46b6b;
+          position: absolute;
+          right: 0;
+          bottom: 0;
+          text-align: center;
+          line-height: 15px;
+          font-size: 10px;
+          box-shadow: 0 0 0px 3px #fff;
         }
       }
     }

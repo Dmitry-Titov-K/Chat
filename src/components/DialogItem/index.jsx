@@ -1,6 +1,6 @@
 
 import React from 'react'
-import { Time, IconeRead } from 'components'
+import { IconeRead } from 'components'// add Time component
 
 
 const GetAvatar = avatar => {
@@ -23,14 +23,15 @@ const DialogItem = () => {
                 <div className="dialogs__item-info-top">
                     <b>Федор Достоевский </b>
                     <span>
-                        <Time date={new Date()} />
+                        {/* <Time date={new Date()} /> */}13:00
                     </span>
                 </div>
                 <div className="dialogs__item-info-bottom">
                     <p>
-                        Свобода не в том, чтоб не сдерживать себя, а в том, чтоб владеть собой.
+                        Определяет параметры видимости текста в блоке, если текст целиком не помещается в заданную область. Возможны два варианта:
                     </p>
                     <IconeRead isMe={false} isRead={true} />
+                    <div className='dialogs__item-info-bottom-counter'>5</div>
                 </div>
             </div>
         </div>
