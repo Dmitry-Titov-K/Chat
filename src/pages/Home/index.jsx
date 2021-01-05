@@ -2,13 +2,28 @@ import React from 'react'
 import { DialogItem } from 'components' // add Message and undcomment block Message
 import './Home.scss'
 
+
 const Home = () => {
     //const date = new Date(2020,11,4);
     //const date2 = new Date(2020,11,1);
     return (
         <section className='home'>
             <div className="dialogs">
-                <DialogItem />
+                <DialogItem user={{
+                    fullname: "Антон Самович",
+                    isOnline: true
+                }}
+                    unread={0} />
+                <DialogItem user={{
+                    fullname: "Сан Саныч",
+                    isOnline: false
+                }}
+                    unread={4} />
+                <DialogItem user={{
+                    fullname: "Антон Самович",
+                    isOnline: true
+                }}
+                    unread={0} />
             </div>
             {/* <Message 
                 avatar='https://www.flaticon.com/svg/static/icons/svg/3930/3930551.svg' 
@@ -80,7 +95,7 @@ const Home = () => {
 
                 isTyping={true}
                 /> */}
-                
+
         </section>
     )
 }
