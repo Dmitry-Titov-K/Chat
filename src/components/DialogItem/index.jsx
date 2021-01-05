@@ -3,37 +3,54 @@ import React from 'react'
 import { IconeRead } from 'components'// add Time component
 import className from 'classname'
 import PropTypes from 'prop-types'
+import format from 'date-fns/format'
+import isToday from 'date-fns/isToday'
+
+
+const GetData = create_at => {
+    if (isToday(create_at)) {
+        return format(create_at, 'HH:mm')
+    } else {
+        return format(create_at, 'dd/MM/yyyy')
+    }
+}
 
 const GetAvatar = avatar => {
     if (avatar) {
         return (<div className="dialogs__item-avatar">
             <img src={avatar} alt="fullname" />
         </div>)
+    } else if (avatar === null) {
+        <div className="dialogs__item-avatar">
+            <img src="https://www.flaticon.com/svg/static/icons/svg/660/660611.svg" alt="fullname" />
+        </div>
     } else {
-        //make avatar function
+        // make avatar function 
     }
 }
 
 import './DialogItem.scss'
 
-const DialogItem = ({ user, unread }) => {
+
+const DialogItem = ({ user, message, unread }) => {
     return (
         <div className={className('dialogs__item', { 'dialogs__item--online': user.isOnline })}>
-            {GetAvatar("https://www.flaticon.com/svg/static/icons/svg/3930/3930551.svg")}
+            {GetAvatar(user.avatar)}
             <div className="dialogs__item-info">
                 <div className="dialogs__item-info-top">
                     <b>{user.fullname}</b>
                     <span>
-                        {/* <Time date={new Date()} /> */}13:00
+                        {GetData(message.create_at)}
                     </span>
                 </div>
                 <div className="dialogs__item-info-bottom">
                     <p>
-                        Определяет параметры видимости текста в блоке, если текст целиком не помещается в заданную область. Возможны два варианта:
+                        {message.text}
                     </p>
 
-                    {unread > 0 ? <div className='dialogs__item-info-bottom-counter'>{unread}</div>
-                        : <IconeRead isMe={true} isRead={true} />}
+                    {unread > 0 ? <div className={className('dialogs__item-info-bottom-counter',
+                        { 'dialogs__item-info-bottom-counter-width': unread > 9 })}>{unread > 9 ? '9+' : unread}</div>
+                        : <IconeRead isMe={true} isRead={message.isRead} />}
                 </div>
             </div>
         </div>
@@ -42,7 +59,8 @@ const DialogItem = ({ user, unread }) => {
 
 DialogItem.propTypes = {
     user: PropTypes.object,
-    unread: PropTypes.string
+    unread: PropTypes.string,
+    message: PropTypes.string
 }
 
 export default DialogItem

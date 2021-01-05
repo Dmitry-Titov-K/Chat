@@ -10,7 +10,7 @@
       position: relative;
       flex-basis: 40px;
       margin-right: 11px;
-      flex: 0 0 40px;
+      flex: 0 0 50px;
       width: 40px;
       height: 40px;
       img {
@@ -59,7 +59,7 @@
           overflow: hidden;
           text-overflow: ellipsis;
           white-space: nowrap;
-          width: 220px;
+          width: 215px;
         }
         &-counter {
           color: #fff;
@@ -75,6 +75,9 @@
           line-height: 14px;
           font-size: 10px;
           box-shadow: 0 0 0px 3px #fff;
+          &-width {
+            width: 22px;
+          }
         }
         .message__checked-read {
           position: absolute;

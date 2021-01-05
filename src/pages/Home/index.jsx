@@ -1,5 +1,5 @@
 import React from 'react'
-import { DialogItem } from 'components' // add Message and undcomment block Message
+import { Message, Dialogs } from 'components' // add Message and undcomment block Message
 import './Home.scss'
 
 
@@ -8,8 +8,25 @@ const Home = () => {
     //const date2 = new Date(2020,11,1);
     return (
         <section className='home'>
-            <div className="dialogs">
-                <DialogItem user={{
+            <Dialogs
+                items={[
+                    {
+                        _id: Math.random(),
+                        message: {
+                            text: "Созданные элементы по умолчанию inline-элементы, поэтому при указании",
+                            isRead: false,
+                            create_at: new Date(2021, 0, 5, 14, 39, 1),
+                            user: {
+                                id: 1,
+                                fullname: 'Самович Антон',
+                                avatar: "https://www.flaticon.com/svg/static/icons/svg/3930/3930551.svg",
+                                isOnline: true
+                            },
+                        }
+                    }
+                ]}
+            />
+            {/*         <DialogItem user={{
                     fullname: "Антон Самович",
                     isOnline: true
                 }}
@@ -23,8 +40,8 @@ const Home = () => {
                     fullname: "Антон Самович",
                     isOnline: true
                 }}
-                    unread={0} />
-            </div>
+                    unread={12} />*/}
+
             {/* <Message 
                 avatar='https://www.flaticon.com/svg/static/icons/svg/3930/3930551.svg' 
                 text='Hello' 
@@ -90,11 +107,12 @@ const Home = () => {
                    
                 ]}
                 />
-                <Message 
-                avatar='https://www.flaticon.com/svg/static/icons/svg/3930/3930551.svg' 
+                */}
+            <Message
+                avatar='https://www.flaticon.com/svg/static/icons/svg/3930/3930551.svg'
 
                 isTyping={true}
-                /> */}
+            />
 
         </section>
     )
