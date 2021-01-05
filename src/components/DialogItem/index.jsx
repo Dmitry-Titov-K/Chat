@@ -32,7 +32,7 @@ const GetAvatar = avatar => {
 import './DialogItem.scss'
 
 
-const DialogItem = ({ user, message, unread }) => {
+const DialogItem = ({ user, message, unread, isMe }) => {
     return (
         <div className={className('dialogs__item', { 'dialogs__item--online': user.isOnline })}>
             {GetAvatar(user.avatar)}
@@ -49,8 +49,9 @@ const DialogItem = ({ user, message, unread }) => {
                     </p>
 
                     {unread > 0 ? <div className={className('dialogs__item-info-bottom-counter',
-                        { 'dialogs__item-info-bottom-counter-width': unread > 9 })}>{unread > 9 ? '9+' : unread}</div>
-                        : <IconeRead isMe={true} isRead={message.isRead} />}
+                        { 'dialogs__item-info-bottom-counter-width': unread > 9 })}>
+                            {unread > 9 ? '9+' : unread}</div>
+                        : <IconeRead isMe={isMe} isRead={message.isRead} />}
                 </div>
             </div>
         </div>
@@ -60,7 +61,8 @@ const DialogItem = ({ user, message, unread }) => {
 DialogItem.propTypes = {
     user: PropTypes.object,
     unread: PropTypes.string,
-    message: PropTypes.string
+    message: PropTypes.string,
+    isMe: PropTypes.bool
 }
 
 export default DialogItem

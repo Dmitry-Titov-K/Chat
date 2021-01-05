@@ -12,17 +12,27 @@ const Home = () => {
                 items={[
                     {
                         _id: Math.random(),
-                        message: {
-                            text: "Созданные элементы по умолчанию inline-элементы, поэтому при указании",
-                            isRead: false,
-                            create_at: new Date(2021, 0, 5, 14, 39, 1),
-                            user: {
-                                id: 1,
-                                fullname: 'Самович Антон',
-                                avatar: "https://www.flaticon.com/svg/static/icons/svg/3930/3930551.svg",
-                                isOnline: true
-                            },
-                        }
+                        text: "Созданные элементы по умолчанию inline-элементы, поэтому при указании",
+                        isRead: false,
+                        create_at: new Date(2021, 0, 5, 14, 39, 1),
+                        user: {
+                            _id: 1,
+                            fullname: 'Самович Антон',
+                            avatar: "https://www.flaticon.com/svg/static/icons/svg/3930/3930551.svg",
+                            isOnline: false
+                        },
+                    },
+                    {
+                        _id: Math.random(),
+                        text: "Вердикт: подождем, когда система заработает полностью, пока она «крутится» в тестовом режиме, то и дело выдает ошибки.",
+                        isRead: true,
+                        create_at: new Date(2021, 0, 5, 11, 32, 1),
+                        user: {
+                            _id: 1,
+                            fullname: 'Влад Рабочий',
+                            avatar: "https://www.flaticon.com/svg/static/icons/svg/3930/3930551.svg",
+                            isOnline: true
+                        },
                     }
                 ]}
             />
