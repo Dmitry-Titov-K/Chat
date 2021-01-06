@@ -72,20 +72,26 @@ const RegisterForm = props => {
                             placeholder="Пароль"
                             onChange={handleChange}
                             onBlur={handleBlur}
-                            value={values.email}
+                            value={values.password}
                             
                         />
                     </Form.Item>
                     <Form.Item
                         name="password2"
-                        
                         hasFeedback
+                        validateStatus={!touched.password2  ? '' : errors.password2 ? "error":"success"}
+                        allowClear
+                        help={!touched.password2  ? null : errors.password2 }
                     >
                         <Input.Password
+                            id='password2'
                             size='large'
                             prefix={<LockOutlined className="site-form-item-icon" />}
                             type="password"
                             placeholder="Подтвердите пароль"
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            value={values.password2}
                         />
                     </Form.Item>
 

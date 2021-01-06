@@ -13,6 +13,12 @@ export default ({ isAuth, values, errors }) => {
       } else if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})/.test(value))
         errors.password = isAuth ? "" : "Слишком простой пароль";
     },
+    password2: ( value) => {
+      if (!value) {
+        errors.password2 = "Подтвердите пароль";
+      } else if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})/.test(value))
+        errors.password2 = isAuth ? "" : "Слишком простой пароль";
+    },
   };
 
   Object.keys(values).forEach(

@@ -3,11 +3,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { DialogItem } from 'components'
 
-
 import './Dialogs.scss'
-
-
-
 
 const Dialogs = ({ items }) => {
     return (
