@@ -3,18 +3,21 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { DialogItem } from 'components'
 
+import orderBy from 'lodash/orderBy'
+
 import './Dialogs.scss'
 
 const Dialogs = ({ items }) => {
     return (
+        
         <div className="dialogs">
-            {items.map(item => (
+            {orderBy(items, ["create_at"],['desc']).map(item=>(
                 <DialogItem
-                    key={item._id}
-                    user={item.user}
-                    message={item}
-                    unread={0}
-                    isMe={item.user._id} />))}
+                key={item._id}
+                message={item}
+                isMe={item.user._id} />
+                ))}
+           
         </div>
     )
 }

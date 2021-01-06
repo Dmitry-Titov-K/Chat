@@ -78,8 +78,6 @@ const LoginForm = props=> {
         )
     }
     
-
-
     LoginForm.propTypes={
         values:PropTypes.any,
         errors:PropTypes.any,

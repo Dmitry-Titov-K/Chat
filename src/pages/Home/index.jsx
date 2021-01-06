@@ -14,11 +14,11 @@ const Home = () => {
                         _id: Math.random(),
                         text: "Созданные элементы по умолчанию inline-элементы, поэтому при указании",
                         isRead: false,
-                        create_at: new Date(2021, 0, 5, 14, 39, 1),
+                        create_at: new Date(2021, 0, 2, 14, 39, 1),
                         user: {
                             _id: 1,
                             fullname: 'Самович Антон',
-                            avatar: "https://www.flaticon.com/svg/static/icons/svg/3930/3930551.svg",
+                            avatar: null,
                             isOnline: false
                         },
                     },
@@ -26,7 +26,7 @@ const Home = () => {
                         _id: Math.random(),
                         text: "Вердикт: подождем, когда система заработает полностью, пока она «крутится» в тестовом режиме, то и дело выдает ошибки.",
                         isRead: true,
-                        create_at: new Date(2021, 0, 5, 11, 32, 1),
+                        create_at: new Date(2021, 0, 1, 11, 32, 1),
                         user: {
                             _id: 1,
                             fullname: 'Влад Рабочий',
@@ -121,6 +121,12 @@ const Home = () => {
             <Message
                 avatar='https://www.flaticon.com/svg/static/icons/svg/3930/3930551.svg'
 
+                isTyping={true}
+            />
+            <Message
+                avatar='https://www.flaticon.com/svg/static/icons/svg/3930/3930551.svg'
+                date={date}
+                audio={}
                 isTyping={true}
             />
 

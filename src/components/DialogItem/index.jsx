@@ -11,34 +11,32 @@ const GetData = create_at => {
     if (isToday(create_at)) {
         return format(create_at, 'HH:mm')
     } else {
-        return format(create_at, 'dd/MM/yyyy')
+        return format(create_at, 'dd.MM.yyyy')
     }
 }
 
 const GetAvatar = avatar => {
     if (avatar) {
-        return (<div className="dialogs__item-avatar">
+        return (
             <img src={avatar} alt="fullname" />
-        </div>)
-    } else if (avatar === null) {
-        <div className="dialogs__item-avatar">
-            <img src="https://www.flaticon.com/svg/static/icons/svg/660/660611.svg" alt="fullname" />
-        </div>
+        )
     } else {
-        // make avatar function 
+        return( 
+            <img src="https://www.flaticon.com/svg/static/icons/svg/660/660611.svg" alt="fullname" />
+            )
     }
 }
 
 import './DialogItem.scss'
 
 
-const DialogItem = ({ user, message, unread, isMe }) => {
+const DialogItem = ({  message, unread, isMe }) => {
     return (
-        <div className={className('dialogs__item', { 'dialogs__item--online': user.isOnline })}>
-            {GetAvatar(user.avatar)}
+        <div className={className('dialogs__item', { 'dialogs__item--online': message.user.isOnline })}>
+            <div className="dialogs__item-avatar">{GetAvatar(message.user.avatar)}</div>
             <div className="dialogs__item-info">
                 <div className="dialogs__item-info-top">
-                    <b>{user.fullname}</b>
+                    <b>{message.user.fullname}</b>
                     <span>
                         {GetData(message.create_at)}
                     </span>
