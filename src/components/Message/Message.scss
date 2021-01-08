@@ -35,6 +35,19 @@
     font-size: 12;
     opacity: 0.5;
   }
+  &--is-audio {
+    #{$self}__audio {
+      &-btn {
+        button {
+          border: 0;
+          width: 28px;
+          height: 28px;
+          border-radius: 30px;
+          background-color: #0f3997;
+        }
+      }
+    }
+  }
   &--is-typing {
     #{$self}__bubble {
       background-color: $message_typing_bubble;

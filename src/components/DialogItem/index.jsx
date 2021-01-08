@@ -21,16 +21,16 @@ const GetAvatar = avatar => {
             <img src={avatar} alt="fullname" />
         )
     } else {
-        return( 
+        return (
             <img src="https://www.flaticon.com/svg/static/icons/svg/660/660611.svg" alt="fullname" />
-            )
+        )
     }
 }
 
 import './DialogItem.scss'
 
 
-const DialogItem = ({  message, unread, isMe }) => {
+const DialogItem = ({ message, unread, isMe }) => {
     return (
         <div className={className('dialogs__item', { 'dialogs__item--online': message.user.isOnline })}>
             <div className="dialogs__item-avatar">{GetAvatar(message.user.avatar)}</div>
@@ -48,7 +48,7 @@ const DialogItem = ({  message, unread, isMe }) => {
 
                     {unread > 0 ? <div className={className('dialogs__item-info-bottom-counter',
                         { 'dialogs__item-info-bottom-counter-width': unread > 9 })}>
-                            {unread > 9 ? '9+' : unread}</div>
+                        {unread > 9 ? '9+' : unread}</div>
                         : <IconeRead isMe={isMe} isRead={message.isRead} />}
                 </div>
             </div>

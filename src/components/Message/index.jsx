@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types';
 import { Time, IconeRead, Typing } from 'components'
 import ClassNames from 'classnames'
 
 import waveSvg from 'assets/svg/wave.svg'
+import playSvg from 'assets/svg/play.svg'
+import pauseSvg from 'assets/svg/pause.svg'
 
 
 
@@ -12,6 +14,7 @@ import './Message.scss'
 
 
 const Message = ({ avatar, user, text, date, isMe, attachment, isTyping, audio }) => {
+    const [isPlaying, setIsPlaying] = useState(false)
     return (
         <div className={ClassNames("message", {
             "message--isme": isMe,
@@ -34,7 +37,9 @@ const Message = ({ avatar, user, text, date, isMe, attachment, isTyping, audio }
                             </div>
                             <div className="message__audio-info">
                                 <div className="message__audio-btn">
-                                    <button>...</button>
+                                    <button onClick={() => setIsPlaying(!isPlaying)}>
+                                        {isPlaying ? <img src={pauseSvg} alt="play icon" /> : <img src={playSvg} alt="play icon" />}
+                                    </button>
                                 </div>
                                 <div className="message__audio-wave">
                                     <img src={waveSvg} alt="" />
