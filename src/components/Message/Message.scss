@@ -20,7 +20,8 @@
     background: $blue;
     display: inline-block;
     border-radius: 12px 12px 12px 0px;
-    box-shadow: 0px 5px 5px rgba(54, 116, 255, 0.2);
+    box-shadow: 0px 5px 5px
+      rgba(54, 116, 255, 0.2);
     padding: 17px;
     margin-right: 20px;
     margin-bottom: 8px;
@@ -36,7 +37,21 @@
     opacity: 0.5;
   }
   &--is-audio {
+    #{$self}__bubble {
+      position: relative;
+      overflow: hidden;
+      width: 280px;
+    }
     #{$self}__audio {
+      audio {
+        display: none;
+      }
+      &-info {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
       &-btn {
         button {
           border: 0;
@@ -44,7 +59,24 @@
           height: 28px;
           border-radius: 30px;
           background-color: #0f3997;
+          img {
+            height: 11px;
+          }
         }
+      }
+      &-duration {
+        color: #fff;
+        font-weight: 500;
+        font-size: 12px;
+        opacity: 0.5;
+      }
+      &-progress {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 40%;
+        height: 100%;
+        background-color: #418fff;
       }
     }
   }

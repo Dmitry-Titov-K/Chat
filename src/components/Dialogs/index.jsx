@@ -9,20 +9,20 @@ import './Dialogs.scss'
 
 const Dialogs = ({ items }) => {
     return (
-        
+
         <div className="dialogs">
-            {orderBy(items, ["create_at"],['desc']).map(item=>(
+            {orderBy(items, ["create_at"], ['desc']).map(item => (
                 <DialogItem
-                key={item._id}
-                message={item}
-                isMe={item.user._id} />
-                ))}
-           
+                    key={item._id}
+                    message={item}
+                    isMe={item.user._id} />
+            ))}
+
         </div>
     )
 }
 
 Dialogs.propTypes = {
-    items: PropTypes.object
+    items: PropTypes.any
 }
 export default Dialogs

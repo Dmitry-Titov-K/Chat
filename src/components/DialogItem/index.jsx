@@ -57,10 +57,10 @@ const DialogItem = ({ message, unread, isMe }) => {
 }
 
 DialogItem.propTypes = {
-    user: PropTypes.object,
-    unread: PropTypes.string,
-    message: PropTypes.string,
-    isMe: PropTypes.bool
+    user: PropTypes.any,
+    unread: PropTypes.any,
+    message: PropTypes.any,
+    isMe: PropTypes.any
 }
 
 export default DialogItem

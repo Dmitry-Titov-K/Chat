@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import PropTypes from 'prop-types';
 import { Time, IconeRead, Typing } from 'components'
 import ClassNames from 'classnames'
@@ -14,7 +14,32 @@ import './Message.scss'
 
 
 const Message = ({ avatar, user, text, date, isMe, attachment, isTyping, audio }) => {
+
     const [isPlaying, setIsPlaying] = useState(false)
+
+    const audioElem = useRef(null)
+
+    useEffect(() => {
+        if (audioElem.current !== null) {
+            audioElem.current.addEventListener(
+                'playing',
+                () => {
+                    setIsPlaying(true)
+                },
+                false),
+                audioElem.current.addEventListener(
+                    'ended',
+                    () => {
+                        setIsPlaying(false)
+                    },
+                    true)
+        }
+    }, [])
+
+    const tooglePlay = () => {
+        audioElem.current.play()
+
+    }
     return (
         <div className={ClassNames("message", {
             "message--isme": isMe,
@@ -32,13 +57,16 @@ const Message = ({ avatar, user, text, date, isMe, attachment, isTyping, audio }
                         {text && <p className="message__text">{text}</p>}
                         {isTyping && <Typing isTyping={true} />}
                         {audio && <div className="message__audio">
+                            <audio ref={audioElem} src={audio} preload="auto"></audio>
                             <div className="message__audio-progress">
 
                             </div>
                             <div className="message__audio-info">
                                 <div className="message__audio-btn">
-                                    <button onClick={() => setIsPlaying(!isPlaying)}>
-                                        {isPlaying ? <img src={pauseSvg} alt="play icon" /> : <img src={playSvg} alt="play icon" />}
+                                    <button onClick={tooglePlay}>
+                                        {isPlaying ?
+                                            <img src={pauseSvg} alt="play icon" />
+                                            : <img src={playSvg} alt="play icon" />}
                                     </button>
                                 </div>
                                 <div className="message__audio-wave">
@@ -113,15 +141,15 @@ Message.defaultProps = {
     user: {}
 }
 Message.propTypes = {
-    avatar: PropTypes.string,
-    text: PropTypes.string,
+    avatar: PropTypes.any,
+    text: PropTypes.any,
     date: PropTypes.any,
-    user: PropTypes.object,
-    isMe: PropTypes.bool,
-    isRead: PropTypes.bool,
-    attachment: PropTypes.array,
-    isTyping: PropTypes.bool,
-    audio: PropTypes.string
+    user: PropTypes.any,
+    isMe: PropTypes.any,
+    isRead: PropTypes.any,
+    attachment: PropTypes.any,
+    isTyping: PropTypes.any,
+    audio: PropTypes.any
 
 }
 

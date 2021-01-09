@@ -1,6 +1,7 @@
 import React from 'react'
 import { Message, Dialogs } from 'components' // add Message, Dialogs and undcomment block Message
 import './Home.scss'
+//import audioMp3 from 'assets/sound/audio.mp3'
 
 
 
@@ -137,7 +138,7 @@ const Home = () => {
             <Message
                 avatar='https://www.flaticon.com/svg/static/icons/svg/3930/3930551.svg'
                 date={date}
-                audio={"asd"}
+                audio={"https://notificationsounds.com/storage/sounds/file-sounds-1097-long-expected.mp3"}
 
             />
 

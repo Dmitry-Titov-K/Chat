@@ -21,8 +21,8 @@ const IconeRead = ({ isMe, isRead }) => {
 }
 
 IconeRead.propTypes = {
-    isMe: PropTypes.bool,
-    isRead: PropTypes.bool
+    isMe: PropTypes.any,
+    isRead: PropTypes.any
 }
 
 export default IconeRead
