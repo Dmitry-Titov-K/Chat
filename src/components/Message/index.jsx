@@ -105,7 +105,7 @@ const Message = ({ avatar, user, text, date, isMe, attachment, isTyping, audio }
                 <img src={avatar} alt={`Avatar ${user}`} />
             </div>
             <div className="message__content">
-                <IconeRead isMe={false} isRead={true} />
+                <IconeRead isMe={isMe} isRead={true} />
                 <div className="message__info">
                     {(audio || text || isTyping) && (<div className="message__bubble">
                         {text && <p className="message__text">{text}</p>}
