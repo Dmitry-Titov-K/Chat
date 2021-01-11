@@ -6,3 +6,4 @@ export { default as Time } from "./Time";
 export { default as IconeRead } from "./IconeRead";
 export { default as Typing } from "./Typing";
 export { default as Dialogs } from "./Dialogs";
+export { default as Avatar } from "./Avatar";

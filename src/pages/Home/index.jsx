@@ -1,53 +1,111 @@
 import React from 'react'
-import { Message, Dialogs } from 'components' // add Message, Dialogs and undcomment block Message
+import { Dialogs } from 'components' // add Message, Dialogs and undcomment block Message
 import './Home.scss'
+import { TeamOutlined, FormOutlined, EllipsisOutlined, SearchOutlined } from '@ant-design/icons'
+import { Input } from 'antd'
 //import audioMp3 from 'assets/sound/audio.mp3'
 
 
 
 const Home = () => {
-    const date = new Date(2020, 11, 4);
+    //const date = new Date(2020, 11, 4);
     // const date2 = new Date(2020, 11, 1);
     return (
         <section className='home'>
             <div className="chat">
                 <div className="chat__sidebar">
                     <div className="chat__sidebar-header">
-
+                        <div>
+                            <TeamOutlined />
+                            <span>Список диологов</span>
+                        </div>
+                        <FormOutlined />
                     </div>
+                    <div className="chat__sidebar-search">
+                        <Input
+                            placeholder="Поиск по контактам"
+                            prefix={<SearchOutlined />}
+                            onSearch={values => console.log(values)}
+
+                        />
+                    </div>
+                    <Dialogs
+                        items={[
+                            {
+                                _id: "dgte243sda1123421d52",
+                                text: "Созданные элементы по умолчанию inline-элементы, поэтому при указании",
+                                isRead: false,
+                                create_at: new Date(2021, 0, 2, 14, 39, 1),
+                                user: {
+                                    _id: "7ddd4e549b62bfeb0fe27bdcc66988d8",
+                                    fullname: 'Самович Антон',
+                                    firstName: 'Антон',
+                                    secondName: 'Самович',
+                                    avatar: null,
+                                    isOnline: false
+                                },
+                            },
+                            {
+                                _id: "da12asda1123421d52",
+                                text: "Вердикт: подождем, когда система заработает полностью, пока она «крутится» в тестовом режиме, то и дело выдает ошибки.",
+                                isRead: true,
+                                create_at: new Date(2021, 0, 1, 11, 32, 1),
+                                user: {
+                                    _id: "da123sda1123421d52",
+                                    fullname: 'Влад Рабочий',
+                                    firstName: 'Влад',
+                                    secondName: 'Рабочий',
+                                    //avatar: "https://www.flaticon.com/svg/static/icons/svg/3930/3930551.svg",
+                                    isOnline: true
+                                },
+                            }
+                        ]}
+                    />
                 </div>
                 <div className="chat__dialog">
-
+                    <div className="chat__dialog-header">
+                        <div className="chat__dialog-header-center">
+                            <b className="chat__dialog-header-fullname">Влад Рабочий</b>
+                            <div className="chat__dialog-header-status">
+                                <div className="status status--isOnline">online</div>
+                            </div>
+                            <EllipsisOutlined />
+                        </div>
+                    </div>
                 </div>
             </div>
-            <Dialogs
+            {/*  <Dialogs
                 items={[
                     {
-                        _id: Math.random(),
+                        _id: "dgte243sda1123421d52",
                         text: "Созданные элементы по умолчанию inline-элементы, поэтому при указании",
                         isRead: false,
                         create_at: new Date(2021, 0, 2, 14, 39, 1),
                         user: {
-                            _id: 1,
+                            _id: "7ddd4e549b62bfeb0fe27bdcc66988d8",
                             fullname: 'Самович Антон',
+                            firstName: 'Антон',
+                            secondName: 'Самович',
                             avatar: null,
                             isOnline: false
                         },
                     },
                     {
-                        _id: Math.random(),
+                        _id: "da12asda1123421d52",
                         text: "Вердикт: подождем, когда система заработает полностью, пока она «крутится» в тестовом режиме, то и дело выдает ошибки.",
                         isRead: true,
                         create_at: new Date(2021, 0, 1, 11, 32, 1),
                         user: {
-                            _id: 1,
+                            _id: "da123sda1123421d52",
                             fullname: 'Влад Рабочий',
-                            avatar: "https://www.flaticon.com/svg/static/icons/svg/3930/3930551.svg",
+                            firstName: 'Влад',
+                            secondName: 'Рабочий',
+                            //avatar: "https://www.flaticon.com/svg/static/icons/svg/3930/3930551.svg",
                             isOnline: true
                         },
                     }
                 ]}
-            />
+            /> */}
             {/*  <DialogItem user={{
                 fullname: "Антон Самович",
                 isOnline: true
@@ -130,9 +188,8 @@ const Home = () => {
                 ]}
             /> */}
 
-            <Message
+            {/*  <Message
                 avatar='https://www.flaticon.com/svg/static/icons/svg/3930/3930551.svg'
-
                 isTyping={true}
             />
             <Message
@@ -140,7 +197,7 @@ const Home = () => {
                 date={date}
                 audio={"https://notificationsounds.com/storage/sounds/file-sounds-1097-long-expected.mp3"}
 
-            />
+            />*/}
 
         </section>
     )

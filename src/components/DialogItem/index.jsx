@@ -1,11 +1,10 @@
 
 import React from 'react'
-import { IconeRead } from 'components'// add Time component
+import { IconeRead, Avatar } from 'components'// add Time component
 import className from 'classname'
 import PropTypes from 'prop-types'
 import format from 'date-fns/format'
 import isToday from 'date-fns/isToday'
-
 
 const GetData = create_at => {
     if (isToday(create_at)) {
@@ -15,25 +14,15 @@ const GetData = create_at => {
     }
 }
 
-const GetAvatar = avatar => {
-    if (avatar) {
-        return (
-            <img src={avatar} alt="fullname" />
-        )
-    } else {
-        return (
-            <img src="https://www.flaticon.com/svg/static/icons/svg/660/660611.svg" alt="fullname" />
-        )
-    }
-}
 
 import './DialogItem.scss'
+
 
 
 const DialogItem = ({ message, unread, isMe }) => {
     return (
         <div className={className('dialogs__item', { 'dialogs__item--online': message.user.isOnline })}>
-            <div className="dialogs__item-avatar">{GetAvatar(message.user.avatar)}</div>
+            <div className="dialogs__item-avatar"><Avatar user={message.user} /></div>
             <div className="dialogs__item-info">
                 <div className="dialogs__item-info-top">
                     <b>{message.user.fullname}</b>

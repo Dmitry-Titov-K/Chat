@@ -4,6 +4,7 @@ import { Time, IconeRead, Typing } from 'components'
 import ClassNames from 'classnames'
 import { convertCurrentTime } from 'utils/helpers'
 
+
 import waveSvg from 'assets/svg/wave.svg'
 import playSvg from 'assets/svg/play.svg'
 import pauseSvg from 'assets/svg/pause.svg'
@@ -48,7 +49,7 @@ const MessageAudio = ({ audioSrc }) => {
                     () => {
                         const duration = (audioElem.current && audioElem.current.duration) || 0;
                         setCurrentTime(audioElem.current.currentTime),
-                            setProgressBar((audioElem.current.currentTime / duration) * 100)
+                            setProgressBar(((audioElem.current.currentTime / duration) * 100) + (duration * 0.5))
                     })
         }
     }, [])
@@ -88,6 +89,7 @@ const MessageAudio = ({ audioSrc }) => {
 
 
 }
+
 
 const Message = ({ avatar, user, text, date, isMe, attachment, isTyping, audio }) => {
 

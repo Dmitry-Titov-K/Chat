@@ -1,7 +1,7 @@
 @import "~styles/variables";
 
 .dialogs {
-  width: 300px;
+  width: 100%;
   &__item {
     $item: &;
     display: flex;
@@ -9,8 +9,7 @@
     &-avatar {
       position: relative;
       flex-basis: 40px;
-      margin-right: 11px;
-      flex: 0 0 50px;
+      margin-right: 8px;
       width: 40px;
       height: 40px;
       img {

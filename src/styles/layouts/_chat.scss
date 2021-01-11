@@ -1,0 +1,42 @@
+.chat {
+  background-color: #fff;
+  width: 1100px;
+  display: flex;
+  margin: 0 auto;
+  box-shadow: 0px 0px 25px 0px
+    rgba(0, 0, 0, 0.042);
+
+  &__sidebar {
+    width: 340px;
+    &-header {
+      padding: 20px;
+      justify-content: space-between;
+      display: flex;
+      & > div {
+        span {
+          margin-right: 5px;
+        }
+      }
+    }
+    &-search {
+      padding: 0 20px 20px 20px;
+      .ant-input-prefix {
+        opacity: 0.3;
+      }
+    }
+
+    .dialogs {
+      padding: 0 20px;
+    }
+  }
+  &__dialog {
+    flex: 1;
+    margin: 0 auto;
+    &-header {
+      justify-content: space-between;
+      &-center {
+        display: flex;
+      }
+    }
+  }
+}
