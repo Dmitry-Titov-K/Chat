@@ -10,7 +10,6 @@ import playSvg from 'assets/svg/play.svg'
 import pauseSvg from 'assets/svg/pause.svg'
 
 
-
 import './Message.scss'
 
 const MessageAudio = ({ audioSrc }) => {
@@ -60,8 +59,6 @@ const MessageAudio = ({ audioSrc }) => {
         } else {
             audioElem.current.pause()
         }
-
-
     }
     return (<div className="message__audio">
         <audio ref={audioElem} src={audioSrc} preload="auto"></audio>
@@ -84,16 +81,18 @@ const MessageAudio = ({ audioSrc }) => {
             </div>
         </div>
     </div>
-
     )
-
-
 }
 
-
-const Message = ({ avatar, user, text, date, isMe, attachment, isTyping, audio }) => {
-
-
+const Message = ({ 
+    avatar, 
+    user, 
+    text, 
+    date, 
+    isMe, 
+    attachment, 
+    isTyping, 
+    audio }) => {
     return (
         <div className={ClassNames("message", {
             "message--isme": isMe,
@@ -112,8 +111,6 @@ const Message = ({ avatar, user, text, date, isMe, attachment, isTyping, audio }
                         {isTyping && <Typing isTyping={true} />}
                         {audio && <MessageAudio audioSrc={audio} />}
                     </div>)}
-
-
                     {attachment && <div className="message__attachment">
                         {attachment.map(item => (
                             <div key={item.id} className="message__attachment-item">
@@ -123,17 +120,13 @@ const Message = ({ avatar, user, text, date, isMe, attachment, isTyping, audio }
                         )}
                     </div>
                     }
-
                     {date &&
                         <time className="message__date"><Time date={date} /></time>}
-
                 </div>
-
             </div>
         </div>
     )
 }
-
 
 Message.defaultProps = {
     user: {}
@@ -149,7 +142,6 @@ Message.propTypes = {
     isTyping: PropTypes.any,
     audio: PropTypes.any,
     audioSrc: PropTypes.any
-
 }
 MessageAudio.propTypes = {
     audioSrc: PropTypes.any

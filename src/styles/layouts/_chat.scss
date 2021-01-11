@@ -6,7 +6,6 @@
   margin: 0 auto;
   box-shadow: 0px 0px 25px 0px
     rgba(0, 0, 0, 0.042);
-
   &__sidebar {
     width: 340px;
     border-right: 1px solid rgba(247, 247, 247, 1);
@@ -15,9 +14,21 @@
       justify-content: space-between;
       display: flex;
       border-bottom: 1px solid rgba(247, 247, 247, 1);
+      align-items: center;
+      opacity: 0.7;
+      & > span{
+        &>svg{
+          height: 18px;
+          width: 18px;
+        }
+      }
       & > div {
         span {
           margin-right: 5px;
+          &> svg{
+            height: 18px;
+            width: 18px;
+          }
         }
       }
     }
@@ -35,7 +46,6 @@
         opacity: 0.3;
       }
     }
-
     .dialogs {
      &__item{
       padding: 10px 20px;
@@ -52,14 +62,12 @@
     margin: 0 auto;
     &-header {
       display: flex;
-      padding: 13.65px;
+      padding: 16px;
       justify-content: space-between;
       align-items: center;
       border-bottom: 1px solid rgba(247, 247, 247, 1);
       &-center {
-        flex-direction: column;
-        align-items: center;
-        
+        text-align: center;
         &>b{
           font-weight: 500;
         }
@@ -67,6 +75,9 @@
       &-right{
         justify-content: right;
       }
+    }
+    &-messages{
+      height: 100%;
     }
   }
 }

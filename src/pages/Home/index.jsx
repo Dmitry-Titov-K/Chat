@@ -14,7 +14,7 @@ const Home = () => {
                 <div className="chat__sidebar">
                     <div className="chat__sidebar-header">
                         <div>
-                            <TeamOutlined />
+                            <TeamOutlined width={33} height={33}/>
                             <span>Список диологов</span>
                         </div>
                         <FormOutlined />
@@ -84,7 +84,7 @@ const Home = () => {
                             
                         </div>
                         <div className="chat__dialog-header-right">
-                                <EllipsisOutlined />
+                                <EllipsisOutlined style={{fontSize:'24px', opacity:'0.7'}}/>
                                 </div>
                     </div>
                     <div className="chat__dialog-messages">
