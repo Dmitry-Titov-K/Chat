@@ -13,11 +13,12 @@
       padding: 20px;
       justify-content: space-between;
       display: flex;
-      border-bottom: 1px solid rgba(247, 247, 247, 1);
+      border-bottom: 1px solid
+        rgba(247, 247, 247, 1);
       align-items: center;
       opacity: 0.7;
-      & > span{
-        &>svg{
+      & > span {
+        & > svg {
           height: 18px;
           width: 18px;
         }
@@ -25,7 +26,7 @@
       & > div {
         span {
           margin-right: 5px;
-          &> svg{
+          & > svg {
             height: 18px;
             width: 18px;
           }
@@ -34,12 +35,12 @@
     }
     &-search {
       padding: 20px 20px 20px 20px;
-      .ant-input-affix-wrapper{
+      .ant-input-affix-wrapper {
         border: none;
-        background-color: #F7F8F9;
+        background-color: #f7f8f9;
         padding: 8px 11px;
-        & > input{
-          background-color: #F7F8F9;
+        & > input {
+          background-color: #f7f8f9;
         }
       }
       .ant-input-prefix {
@@ -47,14 +48,15 @@
       }
     }
     .dialogs {
-     &__item{
-      padding: 10px 20px;
-      margin-bottom: 0;
-      cursor: pointer;
-      &.active,&:hover{
-        background-color: #F3F7FF;
+      &__item {
+        padding: 10px 20px;
+        margin-bottom: 0;
+        cursor: pointer;
+        &.active,
+        &:hover {
+          background-color: #f3f7ff;
+        }
       }
-     }
     }
   }
   &__dialog {
@@ -65,19 +67,21 @@
       padding: 16px;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid rgba(247, 247, 247, 1);
+      border-bottom: 1px solid
+        rgba(247, 247, 247, 1);
       &-center {
         text-align: center;
-        &>b{
+        & > b {
           font-weight: 500;
         }
       }
-      &-right{
+      &-right {
         justify-content: right;
       }
     }
-    &-messages{
-      height: 100%;
+    &-messages {
+      height: calc(100% - 59px);
+      overflow: auto;
     }
   }
 }
