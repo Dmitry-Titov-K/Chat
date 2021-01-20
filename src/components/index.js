@@ -8,3 +8,4 @@ export { default as Typing } from "./Typing";
 export { default as Dialogs } from "./Dialogs";
 export { default as Avatar } from "./Avatar";
 export { default as Online } from "./Online";
+export { default as ChatInput } from "./ChatInput";

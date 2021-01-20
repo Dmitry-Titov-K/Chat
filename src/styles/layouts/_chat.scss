@@ -17,6 +17,12 @@
         rgba(247, 247, 247, 1);
       align-items: center;
       opacity: 0.7;
+      button {
+        opacity: 0.6;
+        &:hover {
+          opacity: 1;
+        }
+      }
       & > span {
         & > svg {
           height: 18px;
@@ -48,6 +54,8 @@
       }
     }
     .dialogs {
+      height: calc(100% - 73px);
+      overflow: auto;
       &__item {
         padding: 10px 20px;
         margin-bottom: 0;
@@ -80,7 +88,7 @@
       }
     }
     &-messages {
-      height: calc(100% - 59px);
+      height: calc(100% - 59px - 70px);
       overflow: auto;
     }
   }

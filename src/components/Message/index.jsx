@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import { Time, IconeRead, Typing } from 'components'
 import ClassNames from 'classnames'
 import { convertCurrentTime } from 'utils/helpers'
-
+import { CaretRightOutlined, PauseOutlined } from "@ant-design/icons"
 
 import waveSvg from 'assets/svg/wave.svg'
-import playSvg from 'assets/svg/play.svg'
-import pauseSvg from 'assets/svg/pause.svg'
+//import playSvg from 'assets/svg/play.svg'
+//import pauseSvg from 'assets/svg/pause.svg'
 
 
 import './Message.scss'
@@ -69,8 +69,8 @@ const MessageAudio = ({ audioSrc }) => {
             <div className="message__audio-btn">
                 <button onClick={tooglePlay}>
                     {isPlaying ?
-                        <img src={pauseSvg} alt="play icon" />
-                        : <img src={playSvg} alt="play icon" />}
+                        <PauseOutlined style={{ color: '#fff', fontSize: '14px' }} />
+                        : <CaretRightOutlined style={{ color: '#fff', fontSize: '14px', fontWeight: '500' }} />}
                 </button>
             </div>
             <div className="message__audio-wave">
@@ -84,14 +84,14 @@ const MessageAudio = ({ audioSrc }) => {
     )
 }
 
-const Message = ({ 
-    avatar, 
-    user, 
-    text, 
-    date, 
-    isMe, 
-    attachment, 
-    isTyping, 
+const Message = ({
+    avatar,
+    user,
+    text,
+    date,
+    isMe,
+    attachment,
+    isTyping,
     audio }) => {
     return (
         <div className={ClassNames("message", {

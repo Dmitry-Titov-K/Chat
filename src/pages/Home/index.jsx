@@ -1,8 +1,9 @@
 import React from 'react'
-import { Dialogs, Message, Online } from 'components' // add Message, Dialogs and undcomment block Message
+import { Message, Online, ChatInput } from 'components' // add Message, Dialogs and undcomment block Message
 import './Home.scss'
-import { TeamOutlined, FormOutlined, EllipsisOutlined, SearchOutlined } from '@ant-design/icons'
-import { Input } from 'antd'
+import { Dialogs } from 'containers'
+import { TeamOutlined, FormOutlined, EllipsisOutlined } from '@ant-design/icons'
+import { Button } from 'antd'
 
 //import audioMp3 from 'assets/sound/audio.mp3'
 
@@ -18,15 +19,11 @@ const Home = () => {
                             <TeamOutlined width={33} height={33} />
                             <span>Список диологов</span>
                         </div>
-                        <FormOutlined />
+                        <Button type='link'>
+                            <FormOutlined style={{ fontSize: '18px', color: '#000', opacity: 0.6 }} />
+                        </Button>
                     </div>
-                    <div className="chat__sidebar-search">
-                        <Input
-                            placeholder="Поиск по контактам"
-                            prefix={<SearchOutlined />}
-                            onSearch={values => console.log(values)}
-                        />
-                    </div>
+
                     <Dialogs
                         items={[
                             {
@@ -58,12 +55,26 @@ const Home = () => {
                                 },
                             },
                             {
-                                _id: "7815696ecbf1c96e6894b779456d330e",
+                                _id: "7815696e61c96e6894b779456d330e",
                                 text: "Вердикт: подождем, когда система заработает полностью, пока она «крутится» в тестовом режиме, то и дело выдает ошибки.",
                                 isRead: false,
                                 create_at: new Date(2021, 0, 1, 11, 32, 1),
                                 user: {
-                                    _id: "7815696ecbf1c96e6894b779456d330e",
+                                    _id: "7815656ecbf1c96e6894b779456d330e",
+                                    fullname: 'Сергей Альбертов',
+                                    firstName: 'Сергей',
+                                    secondName: 'Альбертов',
+                                    //avatar: "https://www.flaticon.com/svg/static/icons/svg/3930/3930551.svg",
+                                    isOnline: true
+                                },
+                            },
+                            {
+                                _id: "78156943ecbf1c96e6894b779456d330e",
+                                text: "Вердикт: подождем, когда система заработает полностью, пока она «крутится» в тестовом режиме, то и дело выдает ошибки.",
+                                isRead: false,
+                                create_at: new Date(2021, 0, 1, 11, 32, 1),
+                                user: {
+                                    _id: "7815643ecbf1c96e6894b779456d330e",
                                     fullname: 'Сергей Альбертов',
                                     firstName: 'Сергей',
                                     secondName: 'Альбертов',
@@ -85,7 +96,9 @@ const Home = () => {
 
                         </div>
                         <div className="chat__dialog-header-right">
-                            <EllipsisOutlined style={{ fontSize: '24px', opacity: '0.7' }} />
+                            <Button type='link'>
+                                <EllipsisOutlined style={{ fontSize: '24px', opacity: '0.7' }} />
+                            </Button>
                         </div>
                     </div>
                     <div className="chat__dialog-messages">
@@ -115,7 +128,7 @@ const Home = () => {
                         <Message
                             avatar='https://www.flaticon.com/svg/static/icons/svg/3930/3930551.svg'
                             text='📢 О чём данный курс?
-                Как разработать свой чат на ReactJS, Redux + NodeJS, Socket.IO, MongoDB. Сделаем полноценный чат с возможностью загрузки фотографий, отправки аудиосообщений как в Telegram, VK, отправка Emoji (смайлов). Также со списком диалогов и поиска пользователей по E-Mail или имени.'
+                            Как разработать свой чат на ReactJS, Redux + NodeJS, Socket.IO, MongoDB. Сделаем полноценный чат с возможностью загрузки фотографий, отправки аудиосообщений как в Telegram, VK, отправка Emoji (смайлов). Также со списком диалогов и поиска пользователей по E-Mail или имени.'
                             date={date2}
 
                         />
@@ -160,6 +173,10 @@ const Home = () => {
                             audio={"https://notificationsounds.com/storage/sounds/file-sounds-1097-long-expected.mp3"}
 
                         />
+
+                    </div>
+                    <div className="chat__dialog-input">
+                        <ChatInput />
                     </div>
                 </div>
 

@@ -21,3 +21,12 @@ html,
 * {
   outline: none;
 }
+.ant-btn-link {
+  font-size: 18px;
+  color: #202020;
+  opacity: 0.7;
+  &:hover {
+    color: #202020;
+    opacity: 1;
+  }
+}
