@@ -9,3 +9,4 @@ export { default as Dialogs } from "./Dialogs";
 export { default as Avatar } from "./Avatar";
 export { default as Online } from "./Online";
 export { default as ChatInput } from "./ChatInput";
+export { default as Messages } from "./Messages";

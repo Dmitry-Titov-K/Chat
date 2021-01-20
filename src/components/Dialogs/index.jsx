@@ -2,7 +2,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { DialogItem } from 'components'
-import { Input } from 'antd'
+import { Input, Empty } from 'antd'
 import orderBy from 'lodash/orderBy'
 import { SearchOutlined } from '@ant-design/icons'
 
@@ -19,12 +19,12 @@ const Dialogs = ({ items, userId, onSearch, inputValue }) => {
                     value={inputValue}
                 />
             </div>
-            {orderBy(items, ["create_at"], ['desc']).map(item => (
+            {items.length ? (orderBy(items, ["create_at"], ['desc']).map(item => (
                 <DialogItem
                     key={item._id}
                     message={item}
                     isMe={item.user._id === userId} {...items} />
-            ))}
+            ))) : (<Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description='Диалоги не найдены' />)}
 
         </div>
     )

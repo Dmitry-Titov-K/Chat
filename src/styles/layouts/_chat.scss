@@ -90,6 +90,13 @@
     &-messages {
       height: calc(100% - 59px - 70px);
       overflow: auto;
+      position: relative;
+      .ant-empty {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%);
+      }
     }
   }
 }
