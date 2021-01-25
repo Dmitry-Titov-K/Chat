@@ -1,5 +1,5 @@
 import axios from 'core'
 
 export default {
-    getAllDialogs: ()=>axios.get('/dialogs')
+    getAllDialogs: () => axios.get('/dialogs')
 }
