@@ -8,7 +8,9 @@ import './Block.scss'
 
 const Block = ({ children, className }) => {
     return (
-        <div className={classNames('block',className)}>{children}</div>
+        <div className={classNames('block', className)}>
+            {children}
+        </div>
     )
 }
 
