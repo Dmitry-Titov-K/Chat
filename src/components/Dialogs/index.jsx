@@ -8,7 +8,7 @@ import { SearchOutlined } from '@ant-design/icons'
 
 import './Dialogs.scss'
 
-const Dialogs = ({ items, userId, onSearch, inputValue }) => {
+const Dialogs = ({ items, userId, onSearch, inputValue, onSelectDialog }) => {
     return (
         <div className="dialogs">
             <div className="chat__sidebar-search">
@@ -21,6 +21,7 @@ const Dialogs = ({ items, userId, onSearch, inputValue }) => {
             </div>
             {items.length ? (orderBy(items, ["create_at"], ['desc']).map(item => (
                 <DialogItem
+                    onSelect={onSelectDialog}
                     key={item._id}
                     message={item}
                     isMe={item.user._id === userId} {...items} />
@@ -34,7 +35,8 @@ Dialogs.propTypes = {
     items: PropTypes.any,
     userId: PropTypes.any,
     onSearch: PropTypes.any,
-    inputValue: PropTypes.any
+    inputValue: PropTypes.any,
+    onSelectDialog: PropTypes.any
 
 }
 export default Dialogs

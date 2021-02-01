@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
-import { dialogsAction } from "redux/actions";
-import { Dialogs as BaseDialogs } from "components";
+import { messagesAction } from "redux/actions";
+import { Messages as BaseMessages } from "components";
 
-const Dialogs = ({ fetchDialogs, setCurrentDialog, items, userId }) => {
+const Messages = ({ fetchMessages, setCurrentDialog, items, userId }) => {
   const [inputValue, setInputValue] = useState("");
   const [filtered, setFiltered] = useState(Array.from(items));
 
@@ -21,13 +21,13 @@ const Dialogs = ({ fetchDialogs, setCurrentDialog, items, userId }) => {
 
   useEffect(() => {
     if (!items.length) {
-      fetchDialogs();
+      fetchMessages();
     } else {
       setFiltered(items);
     }
   }, [items]);
   return (
-    <BaseDialogs
+    <BaseMessages
       userId={userId}
       inputValue={inputValue}
       items={filtered}
@@ -37,10 +37,10 @@ const Dialogs = ({ fetchDialogs, setCurrentDialog, items, userId }) => {
   );
 };
 
-Dialogs.propTypes = {
+Messages.propTypes = {
   items: PropTypes.any,
   userId: PropTypes.any,
-  fetchDialogs: PropTypes.any,
+  fetchMessages: PropTypes.any,
   setCurrentDialog: PropTypes.any,
 };
-export default connect(({ dialogs }) => dialogs, dialogsAction)(Dialogs);
+export default connect(({ messages }) => messages, messagesAction)(Messages);

@@ -4,24 +4,30 @@ import { IconeRead, Avatar } from 'components'// add Time component
 import className from 'classname'
 import PropTypes from 'prop-types'
 import format from 'date-fns/format'
+import parseISO from 'date-fns/parseISO'
+
 import isToday from 'date-fns/isToday'
-
-const GetData = create_at => {
-    if (isToday(create_at)) {
-        return format(create_at, 'HH:mm')
-    } else {
-        return format(create_at, 'dd.MM.yyyy')
-    }
-}
-
-
 import './DialogItem.scss'
 
 
 
-const DialogItem = ({ message, unread, isMe }) => {
+const GetData = create_at => {
+    const correctData = parseISO(create_at)
+    if (isToday(create_at)) {
+        return format(correctData, 'HH:mm')
+    } else {
+        console.log(format(correctData, 'dd.MM.yyyy '))
+        return format(correctData, 'dd.MM.yyyy ')
+    }
+}
+
+
+const DialogItem = ({ message, unread, isMe, onSelect }) => {
+    console.log(message.create_at)
     return (
-        <div className={className('dialogs__item', { 'dialogs__item--online': message.user.isOnline })}>
+
+        <div className={className('dialogs__item', { 'dialogs__item--online': message.user.isOnline })}
+            onClick={onSelect.bind(this, message.user._id)}>
             <div className="dialogs__item-avatar"><Avatar user={message.user} /></div>
             <div className="dialogs__item-info">
                 <div className="dialogs__item-info-top">
@@ -49,7 +55,9 @@ DialogItem.propTypes = {
     user: PropTypes.any,
     unread: PropTypes.any,
     message: PropTypes.any,
-    isMe: PropTypes.any
+    isMe: PropTypes.any,
+    onSelect: PropTypes.any,
+    _id: PropTypes.any
 }
 
 export default DialogItem
