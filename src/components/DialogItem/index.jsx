@@ -27,7 +27,7 @@ const DialogItem = ({ message, unread, isMe, onSelect }) => {
     return (
 
         <div className={className('dialogs__item', { 'dialogs__item--online': message.user.isOnline })}
-            onClick={onSelect.bind(this, message.user._id)}>
+            onClick={onSelect.bind(this, message._id)}>
             <div className="dialogs__item-avatar"><Avatar user={message.user} /></div>
             <div className="dialogs__item-info">
                 <div className="dialogs__item-info-top">

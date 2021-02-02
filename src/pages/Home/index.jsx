@@ -1,7 +1,7 @@
 import React from 'react'
-import { Messages, Online, ChatInput } from 'components' // add Message, Dialogs and undcomment block Message
+import { Online, ChatInput } from 'components' // add Message, Dialogs and undcomment block Message
 import './Home.scss'
-import { Dialogs } from 'containers'
+import { Dialogs, Messages } from 'containers'
 import { TeamOutlined, FormOutlined, EllipsisOutlined } from '@ant-design/icons'
 import { Button } from 'antd'
 

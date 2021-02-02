@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react'
 import PropTypes from 'prop-types';
-import { Time, IconeRead, Typing } from 'components'
+import { Time, IconeRead, Typing, Avatar } from 'components'
 import ClassNames from 'classnames'
 import { convertCurrentTime } from 'utils/helpers'
 import { CaretRightOutlined, PauseOutlined } from "@ant-design/icons"
@@ -101,7 +101,9 @@ const Message = ({
             "message--is-audio": audio
         })}>
             <div className="message__avatar">
-                <img src={avatar} alt={`Avatar ${user}`} />
+                {!avatar ? <Avatar user={user} /> :
+                    <img src={avatar} alt={`Avatar ${user.firstName}`} />}
+
             </div>
             <div className="message__content">
                 <IconeRead isMe={isMe} isRead={true} />

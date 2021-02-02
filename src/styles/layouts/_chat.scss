@@ -4,8 +4,7 @@
   height: 100%;
   display: flex;
   margin: 0 auto;
-  box-shadow: 0px 0px 25px 0px
-    rgba(0, 0, 0, 0.042);
+  box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.042);
   &__sidebar {
     width: 340px;
     border-right: 1px solid rgba(247, 247, 247, 1);
@@ -13,8 +12,7 @@
       padding: 20px;
       justify-content: space-between;
       display: flex;
-      border-bottom: 1px solid
-        rgba(247, 247, 247, 1);
+      border-bottom: 1px solid rgba(247, 247, 247, 1);
       align-items: center;
       opacity: 0.7;
       button {
@@ -75,8 +73,7 @@
       padding: 16px;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid
-        rgba(247, 247, 247, 1);
+      border-bottom: 1px solid rgba(247, 247, 247, 1);
       &-center {
         text-align: center;
         & > b {
@@ -89,8 +86,7 @@
     }
     &-messages {
       height: calc(100% - 59px - 70px);
-      overflow: auto;
-      position: relative;
+
       .ant-empty {
         position: absolute;
         left: 50%;

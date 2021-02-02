@@ -1,5 +1,5 @@
 import { axios } from "core";
 
 export default {
-  getAllMessages: () => axios.get("/dialogs"),
+  getAllByDialogsId: (id) => axios.get(`/message?dialog=${id}`),
 };
