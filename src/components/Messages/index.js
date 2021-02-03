@@ -7,19 +7,24 @@ import { Message } from "components";
 
 import "./messages.scss";
 
-const Messages = ({ isLoading, items }) => {
+const Messages = ({ BlockRef, isLoading, items }) => {
   //add items
   return (
-    <div className={className("messages", { "messages--loading": isLoading })}>
+    <div
+      className={className("messages", { "messages--loading": isLoading })}
+      ref={BlockRef}
+    >
       {isLoading ? (
         <Space size="middle">
           <Spin size="large" tip="Загрузка сообщений..." />
         </Space>
-      ) : items && !isLoading && items.length ? (
+      ) : items && !isLoading ? (
         <div>
-          {items.map((item) => (
-            <Message {...item} key={item._id} />
-          ))}
+          {items.length > 0 ? (
+            items.map((item) => <Message {...item} key={item._id} />)
+          ) : (
+            <Empty description="Сообщений нет" />
+          )}
         </div>
       ) : (
         <Empty description="Откройте диалог" />
@@ -37,5 +42,6 @@ const Messages = ({ isLoading, items }) => {
 Messages.propTypes = {
   items: PropTypes.any,
   isLoading: PropTypes.any,
+  BlockRef: PropTypes.any,
 };
 export default Messages;

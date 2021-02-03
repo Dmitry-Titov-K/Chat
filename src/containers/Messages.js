@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
@@ -6,11 +6,16 @@ import { messagesAction } from "redux/actions";
 import { Messages as BaseMessages } from "components";
 
 const Messages = ({ isLoading, fetchMessages, currentDialogId, items }) => {
+  const messageRef = useRef(null);
   useEffect(() => {
     currentDialogId !== null ? fetchMessages(currentDialogId) : null;
   }, [currentDialogId]);
-  useEffect(() => {}, []);
-  return <BaseMessages items={items} isLoading={isLoading} />;
+  useEffect(() => {
+    messageRef.current.scrollTo(0, 999999);
+  }, [items]);
+  return (
+    <BaseMessages items={items} isLoading={isLoading} BlockRef={messageRef} />
+  );
 };
 
 Messages.propTypes = {
